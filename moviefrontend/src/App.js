@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+// import { Redirect } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/Navbar'
+import MovieDisplay from './components/MovieDisplay'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+
+  state = {
+    movies: []
+  }
+
+  componentDidMount = async() => {
+    let allMovies = await fetch('http://localhost:3000/movies')
+    let movies = await allMovies.json()
+      this.setState({
+        movies
+      })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <MovieDisplay allmovies={ this.state.movies }/>
+
+      </div>
+    );
+  }
 }
 
 export default App;
+
+
+
+// src="https://finalfantasyxv.square-enix-games.com//public/video/ffxv-reclaim-your-throne-bg.webm" type="video/webm">

@@ -83,3 +83,4 @@ movie_arr.each do |imdb_id|
 end 
 
 puts 'seeded!'
+

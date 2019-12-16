@@ -45,7 +45,8 @@ import React from 'react';
 import './Movie.scss'
 
 const Movie = (props) => {
-    // const image = props.movie.poster_img
+    const image = props.movie.poster_img
+
     return (
         <div id={props.id}>
                 <div className="movie_card" id="bright">
@@ -68,8 +69,8 @@ const Movie = (props) => {
                     </ul>
                     </div>
                 </div>
-                <div className="blur_back bright_back" >
-                    <img alt={props.movie.title} src={props.movie.poster_img} style={{width: '70%', height: '350px'}}/>
+                <div className="blur_back bright_back" style={{backgroundImage: `url(${image})` }}>
+                    {/* <img alt={props.movie.title} src={props.movie.poster_img} style={{width: '70%', height: '350px'}}/> */}
                 </div>
                 </div>
             </div>

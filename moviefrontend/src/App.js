@@ -23,7 +23,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <MovieDisplay allmovies={ this.state.movies }/>
+        <MovieDisplay allmovies={ this.state.movies } />
 
       </div>
     );

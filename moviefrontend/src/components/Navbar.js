@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 export class Navbar extends Component {
     render() {
+      
         return (
             <div>
               <div className="topnav">
@@ -11,6 +12,7 @@ export class Navbar extends Component {
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
+                <a href='#wishlist'>Wish List</a>
               </div>  
             </div>
         );

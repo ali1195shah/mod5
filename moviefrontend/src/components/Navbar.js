@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export class Navbar extends Component {
@@ -8,11 +8,11 @@ export class Navbar extends Component {
         return (
             <div>
               <div className="topnav">
-                <a className="active" href="#home">Home</a>
+                {/* <a className="active" href="#home">Home</a>
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-                <a href='#wishlist'>Wish List</a>
+                <a href="#about">About</a> */}
+                <a href='#HomePage'>HomePage</a>
               </div>  
             </div>
         )

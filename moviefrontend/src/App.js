@@ -18,13 +18,13 @@ export class App extends Component {
   }
 
   setToken = ({ token, user_id, username })  =>{
-    // localStorage.token = token
+    localStorage.token = token
     localStorage.setItem("token", token)
-    // localStorage.userId = user_id
-    // localStorage.username = username
+    localStorage.userId = user_id
+    localStorage.username = username
     this.setState({
       token: token,
-      // loggedInUserId: user_id
+      loggedInUserId: user_id
     })
   }
 

@@ -2,29 +2,50 @@ import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
-import MovieDisplay from './components/MovieDisplay'
+// import MovieDisplay from './components/MovieDisplay'
 import './App.css'
+import MovieContainer from './containers/MovieContainer'
+import {Route, Redirect, Switch} from 'react-router-dom'
+import LoginForm from './components/LoginForm'
 
 export class App extends Component {
 
   state = {
-    movies: []
+    token: localStorage.token,
+    loggedInUserId: localStorage.userId,
+    username: null,
+    // display: 'Login'
   }
 
-  componentDidMount = async() => {
-    let allMovies = await fetch('http://localhost:3000/movies')
-    let movies = await allMovies.json()
-      this.setState({
-        movies
-      })
+  setToken = ({ token, user_id, username })  =>{
+    // localStorage.token = token
+    localStorage.setItem("token", token)
+    // localStorage.userId = user_id
+    // localStorage.username = username
+    this.setState({
+      token: token,
+      // loggedInUserId: user_id
+    })
+  }
+
+  logOut = () => {
+    localStorage.clear()
+    this.setState({
+      loggedInUserId: null,
+      token: null
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Navbar />
-        <MovieDisplay allmovies={ this.state.movies } />
+        <Switch>
+          <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken}/>} />
+          <Route exact path={'/movies'} render={(props) => <MovieContainer {...props} />} />
+        </Switch>
 
+        {/* <MovieContainer /> */}
       </div>
     );
   }

@@ -15,7 +15,7 @@ export class Navbar extends Component {
                 <a href='#wishlist'>Wish List</a>
               </div>  
             </div>
-        );
+        )
     }
 }
 
